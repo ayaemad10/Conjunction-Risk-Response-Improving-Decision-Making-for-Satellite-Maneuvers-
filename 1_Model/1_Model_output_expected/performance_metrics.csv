@@ -1,0 +1,7 @@
+Metric,Value,Notes
+Accuracy,0.9571592210767469,Overall correct predictions by RandomForestClassifier
+Precision,0.9641505422071018,Proportion of positive identifications that were actually correct
+Recall,0.968123492110938,Proportion of actual positives that were correctly identified
+F1-Score,0.966132932766574,Harmonic mean of precision and recall
+Mean Average Precision (mAP),Not Applicable,Not applicable for binary classification/regression tasks in this project
+Loss Value (Conceptual),Decreasing Trend (Conceptual),Expected decreasing trend during Deep Learning training (conceptual)
