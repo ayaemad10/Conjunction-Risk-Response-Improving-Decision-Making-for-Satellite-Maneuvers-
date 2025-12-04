@@ -1,0 +1,78 @@
+{
+    "observation_space": {
+        "features": [
+            "miss_distance",
+            "relative_speed",
+            "relative_position_r",
+            "relative_position_t",
+            "relative_position_n",
+            "relative_velocity_r",
+            "relative_velocity_t",
+            "relative_velocity_n",
+            "collision_probability",
+            "collision_max_probability"
+        ],
+        "bounds": {
+            "low": [
+                0.0,
+                0.0,
+                -500.0,
+                -500.0,
+                -500.0,
+                -8000.0,
+                -17000.0,
+                -10000.0,
+                0.0,
+                0.0
+            ],
+            "high": [
+                500.0,
+                17000.0,
+                500.0,
+                500.0,
+                500.0,
+                3500.0,
+                1500.0,
+                10000.0,
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "action_space": {
+        "type": "Discrete",
+        "n_actions": 7,
+        "delta_v_magnitude": 0.01,
+        "actions_map": {
+            "0": "no_maneuver",
+            "1": "+R",
+            "2": "-R",
+            "3": "+T",
+            "4": "-T",
+            "5": "+N",
+            "6": "-N"
+        }
+    },
+    "reward_function_parameters": {
+        "safe_miss_distance_threshold": 100.0,
+        "critical_miss_distance_threshold": 5.0,
+        "safe_prob_threshold": 1e-07,
+        "high_prob_threshold": 0.0001,
+        "positive_reward_safe_state": 10.0,
+        "negative_penalty_high_risk": -50.0,
+        "maneuver_cost": -0.1,
+        "miss_dist_increase_per_delta_v": 1000.0,
+        "prob_decrease_factor_per_delta_v": 0.5
+    },
+    "algorithm_settings": {
+        "agent_type": "PPO",
+        "policy_type": "MlpPolicy",
+        "total_timesteps": 10000,
+        "learning_rate": 0.0003,
+        "gamma": 0.99,
+        "gae_lambda": 0.95,
+        "n_steps": 2048,
+        "clip_range": 0.2,
+        "batch_size": 64
+    }
+}
